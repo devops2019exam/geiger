@@ -82,4 +82,19 @@ class GeigerApplicationTests {
 				.statusCode(200)
 				.body("size()", CoreMatchers.equalTo(n + 1))
 	}
+	
+	@Test
+	fun createAMeasurementOnId(){
+		val device = Device("modelnameTest",1)
+		val savedDevice = deviceRepository.save(device)
+
+		val measurementDto = MeasurementDto(device, 20f,20f,20)
+
+		RestAssured.given().accept(ContentType.JSON)
+				.header("Accept", ContentType.JSON)
+				.request().header("Content-Type", "application/json")
+				.body(measurementDto)
+				.post("/${savedDevice.id}/measurements")
+				.then().statusCode(200)
+	}
 }
