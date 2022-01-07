@@ -18,7 +18,7 @@
 		<java.version>1.8</java.version>
 		<kotlin.version>1.2.71</kotlin.version>
 		<springboot.version>2.1.0.RELEASE</springboot.version>
-		<h2.version>1.4.197</h2.version>
+		<h2.version>2.0.206</h2.version>
 	</properties>
 
 	<dependencies>
